@@ -1,23 +1,19 @@
-# decode-labs-project2
-# Iris Data Classification Pipeline
+# Iris Data Classification with KNN
 
-This repository contains a modular machine learning pipeline built to classify the classic Iris dataset using the K-Nearest Neighbors (KNN) algorithm. Developed as part of the DecodeLabs AI Engineering Internship (Project 2).
+This is my implementation for Project 2 of the DecodeLabs internship. The goal of this project was to step away from rule-based programming and build a foundational supervised learning pipeline from scratch using the classic Iris dataset and the K-Nearest Neighbors (KNN) algorithm.
 
-## Project Overview
-The goal of this project is to build a complete end-to-end classification pipeline following the structured Input-Process-Output framework. It handles data preprocessing, handles data leakage constraints by scaling features correctly, tunes the hyperparameter $K$ using the elbow method, and evaluates final performance using a confusion matrix and classification metrics.
+## How the Code Works
 
-## Pipeline Architecture
-1. **Data Preprocessing (Input):** Loads the Iris dataset, performs a stratified 80/20 train-test split to preserve class distribution, and normalizes features using `StandardScaler`.
-2. **Hyperparameter Tuning (Process):** Iterates through $K$ values from 1 to 20, plotting the weighted F1 error rate to identify the optimal number of neighbors.
-3. **Evaluation (Output):** Trains the final model using the best $K$ value and outputs a classification report along with a visual confusion matrix heatmap.
+The notebook is split into a clean, step-by-step workflow:
 
-## Prerequisites
-Make sure you have the following packages installed in your Python environment:
-* numpy
-* matplotlib
-* seaborn
-* scikit-learn
+1. **Data Prep:** Loads the dataset and applies a stratified 80/20 train-test split to ensure all three flower classes are balanced across both sets.
+2. **Feature Scaling:** Uses `StandardScaler` to normalize the features, preventing larger numerical scales from biasing the distance calculations.
+3. **Finding K:** Iterates through $K$ values from 1 to 20 and uses the Elbow Method (plotting the weighted F1 error rate) to visually determine the optimal number of neighbors.
+4. **Final Evaluation:** Trains the final model with the best $K$ value and prints out a clean classification report along with a Seaborn confusion matrix heatmap.
 
-You can install them all via pip:
+## Requirements
+
+To run this notebook, you will need standard data science libraries installed:
+
 ```bash
 pip install numpy matplotlib seaborn scikit-learn
